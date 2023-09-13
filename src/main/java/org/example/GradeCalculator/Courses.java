@@ -10,12 +10,16 @@ public class Courses {
     }
 
     public double multiCreditAndCourseGrade() {
-        double result = 0;
-        for (Course course: courses) {
-            //result += course.getCredit() * course.getGradeToNumber();
-            result += course.getMultiCreditAndGrade();
-        }
-        return result;
+//        double result = 0;
+//        for (Course course: courses) {
+//            //result += course.getCredit() * course.getGradeToNumber();
+//            result += course.getMultiCreditAndGrade();
+//        }
+
+//        return result;
+        return courses.stream()
+                .mapToDouble(Course::getMultiCreditAndGrade)
+                .sum();
     }
 
     public int calculateTotalCompletedCredit() {
